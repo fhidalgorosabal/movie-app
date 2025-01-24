@@ -1,9 +1,12 @@
 import './MovieApp.scss'
+import { MovieList } from './components/MovieList/MovieList';
+import { NavBar } from './components/NavBar/NavBar';
 
 export const MovieApp = () => {
   return (
     <>
-      <h1>Movie App</h1>
+      <NavBar/>
+      <MovieList/>
     </>
   )
 };
