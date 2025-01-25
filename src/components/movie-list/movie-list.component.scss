@@ -1,9 +1,15 @@
-.movie-card {   
-    color: #fff;
-    .title {
-        font-weight: 700;
-        color: #fff000;
-    } 
-    /* .description {
-    } */
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    list-style: none;
+    width: 100%;
+    padding: 20px 3%;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 72px);
 }
