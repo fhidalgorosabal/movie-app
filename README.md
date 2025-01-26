@@ -1,6 +1,6 @@
 # Movie App
 
-Aplicación desarrollada en **React** que muestra un listado de las últimas películas extrenadas. Utiliza la API de [The Movie Database (TMDB)](https://developer.themoviedb.org/docs/getting-started).
+Aplicación desarrollada en **React** que muestra un listado de las últimas películas del año. Utiliza la API de [The Movie Database (TMDB)](https://developer.themoviedb.org/docs/getting-started).
 
 ---
 
