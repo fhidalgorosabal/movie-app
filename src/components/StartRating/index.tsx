@@ -1,6 +1,6 @@
 import { FaStar } from 'react-icons/fa6';
 import { FaRegStar } from 'react-icons/fa6';
-import './start-rating.component.scss';
+import './styles.scss';
 
 interface StartRatingProps {
     rating: number;

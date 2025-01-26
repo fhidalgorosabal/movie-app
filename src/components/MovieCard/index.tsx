@@ -1,8 +1,7 @@
-import { Card } from "../../interfaces/card.interface";
-import { StartRating } from "../start-rating/start-rating.component";
-import './movie-card.component.scss';
-
-const IMG_URL = 'https://image.tmdb.org/t/p/original';
+import { StartRating } from "../StartRating";
+import { Card } from "../../utils/types";
+import { IMG_URL } from "../../utils/constants";
+import './styles.scss';
 
 export const MovieCard = (props: Card) => { 
     const movie = props.movie;

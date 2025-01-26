@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Movie } from '../../interfaces/movie.interface';
-import { MovieCard } from '../movie-card/movie-card.component';
+import { MovieCard } from '../MovieCard';
+import { Movie } from '../../utils/types';
+import { API_KEY, API_URL } from '../../utils/constants';
 import ReactLoading from 'react-loading';
-import './movie-list.component.scss';
-
-const API_KEY = '3c27cf2da95a9372232a01814c2dc0ee';
-const API_URL = 'https://api.themoviedb.org/3/discover/movie';
+import './styles.scss';
 
 export const MovieList = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
