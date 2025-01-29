@@ -7,6 +7,9 @@ Aplicación desarrollada en **React** que muestra un listado de las últimas pel
 ## Tecnologías utilizadas
 
 - **React**
+- **ReactIcons**
+- **ReactLoading**
+- **ReactRouter**
 - **Vite**
 - **TypeScript**
 - **SASS**

@@ -42,11 +42,25 @@
         padding: 8px 12px;
         cursor: pointer;
         border-radius: 4px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease;        
+          
+        a {
+          text-decoration: none;
+          color: inherit;
+          display: block;
+        }
+
+        .active-link {
+          color: #f1c40f;
+        }
 
         &:hover {
           background-color: #f1c40f;
           color: #3a3a3a;
+
+          .active-link {
+            color: #fff;
+          }
         }
       }
 
@@ -75,6 +89,10 @@
           border-radius: 0;
           border-top: 1px solid #555;
 
+          .active-link {
+            color: #f1c40f;
+          }
+
           &:hover {
             background-color: #f1c40f;
             color: #3a3a3a;
@@ -83,7 +101,6 @@
         }
       }
     }
-
     
     .menu-toggle {
       display: none;

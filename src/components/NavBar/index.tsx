@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import { FaBars } from 'react-icons/fa';
 import './styles.scss';
 
@@ -7,6 +8,10 @@ export const NavBar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -19,9 +24,21 @@ export const NavBar = () => {
           <FaBars />
         </button>
         <ul className={`menu ${isMenuOpen ? 'open' : ''}`}>
-          <li className="menu-item">Películas</li>
-          <li className="menu-item">Series-TV</li>
-          <li className="menu-item">People</li>
+          <li className="menu-item" onClick={closeMenu}>
+            <NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}>
+              Películas
+            </NavLink>
+          </li>
+          <li className="menu-item" onClick={closeMenu}>
+            <NavLink to="/serie" className={({ isActive }) => isActive ? "active-link" : ""}>
+              Series-TV
+            </NavLink>
+          </li>
+          <li className="menu-item" onClick={closeMenu}>
+            <NavLink to="/person" className={({ isActive }) => isActive ? "active-link" : ""}>
+              People
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
