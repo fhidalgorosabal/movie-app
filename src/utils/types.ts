@@ -15,6 +15,24 @@ export interface Movie {
     vote_count: number;
 }
 
+export interface SerieTV extends Movie {
+    first_air_date: string;
+    name: string;
+    origin_country: string[];
+    original_name: string;
+}
+
+export interface Person {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for: Movie[];
+    known_for_department: string;
+    name: string;
+    popularity: number;
+    profile_path: string;
+}
+
 export interface Card { 
-    movie: Movie;
+    data: Movie | SerieTV;
 }

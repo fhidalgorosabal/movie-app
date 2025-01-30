@@ -1,7 +1,7 @@
+import { SerieList } from "../../components/SerieList";
+
 export const SerieTV = () => {
     return (
-        <div>
-            SerieTV
-        </div>
+        <SerieList />
     );
 };

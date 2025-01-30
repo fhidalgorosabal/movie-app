@@ -1,28 +1,31 @@
 import { StartRating } from "../StartRating";
-import { Card } from "../../utils/types";
+import { Card, Movie, SerieTV } from "../../utils/types";
 import { IMG_URL } from "../../utils/constants";
 import './styles.scss';
 
 export const MovieCard = (props: Card) => { 
-    const movie = props.movie;
+    const data = props?.data;    
+    const getTitle = (data: Movie | SerieTV) => {
+        return data.title ? data.title : (data as SerieTV).name;
+    };
     
     return (
         <li className="movie-card">
             <div className="movie-poster">
                 <img 
-                    src={`${IMG_URL}${movie.poster_path}`} 
-                    alt={movie.title} 
+                    src={`${IMG_URL}${data.poster_path}`} 
+                    alt={getTitle(data)} 
                 />
             </div>
             <div className="movie-info">
-                <h5 className="movie-title">{movie.title}</h5>
-                { movie.vote_average > 0 && <StartRating rating={movie.vote_average} />}
+                <h5 className="movie-title">{getTitle(data)}</h5>
+                { data.vote_average > 0 && <StartRating rating={data.vote_average} />}
                 <div className="hidden-content">
-                    { movie.overview &&
+                    { data.overview &&
                         <p className="movie-description">{
-                            movie.overview.length > 100
-                                ? `${movie.overview.substring(0, 100)}...`
-                                : movie.overview
+                            data.overview.length > 100
+                                ? `${data.overview.substring(0, 100)}...`
+                                : data.overview
                         }</p>                     
                     }
                     <button className="btn-default">Ver mas</button>

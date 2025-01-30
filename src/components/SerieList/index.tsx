@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react';
 import { MovieCard } from '../MovieCard';
-import { Movie } from '../../utils/types';
-import { API_KEY, MOVIE_API_URL } from '../../utils/constants';
+import { SerieTV } from '../../utils/types';
+import { API_KEY, SERIE_API_URL } from '../../utils/constants';
 import ReactLoading from 'react-loading';
 import '../../assets/styles/_data-list.scss';
 
-export const MovieList = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
+export const SerieList = () => {
+    const [series, setMovies] = useState<SerieTV[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
-    const getMovies = () => {
-        fetch(`${MOVIE_API_URL}?api_key=${API_KEY}&language=es-ES`)
+    const getSeries = () => {
+        fetch(`${SERIE_API_URL}?api_key=${API_KEY}&language=es-ES`)
             .then((res) => res.json())
             .then((data) => {
-                setMovies(data.results);  
+                setMovies(data.results);                  
                 setLoading(false);              
             })
             .catch((error) => console.error(error));
     };
 
     useEffect(() => {
-        getMovies();
+        getSeries();        
     }, []);    
 
     return (
@@ -31,8 +31,8 @@ export const MovieList = () => {
                     </div>
                 :   <ul className="data-list">
                         {   
-                            movies.map((movie) => (
-                                <MovieCard key={movie.id} data={movie}/>
+                            series.map((serie) => (
+                                <MovieCard key={serie.id} data={serie}/>
                             ))
                         }
                     </ul>
