@@ -1,5 +1,7 @@
+@import "../../assets/styles/variables";
+
 .navbar {
-  background-color: #3a3a3a;
+  background-color: $movie-primary-bg-color;
   padding: 12px 3%;
   font-weight: bold;
   position: relative;
@@ -12,8 +14,8 @@
     .title {
       display: flex;
       align-items: center;
-      color: #f1c40f;
-      font-size: 22px;
+      color: $movie-secondary-color;
+      font-size: $movie-font-size-l;
 
       &::before {
         content: "";
@@ -36,8 +38,8 @@
       margin-left: 20px;
 
       .menu-item {
-        color: #fff;
-        font-size: 16px;
+        color: $movie-primary-color;
+        font-size: $movie-font-size-s;
         margin-left: 15px;
         padding: 8px 12px;
         cursor: pointer;
@@ -51,15 +53,15 @@
         }
 
         .active-link {
-          color: #f1c40f;
+          color: $movie-secondary-color;
         }
 
         &:hover {
-          background-color: #f1c40f;
-          color: #3a3a3a;
+          background-color: $movie-secondary-color;
+          color: $movie-tertiary-color;
 
           .active-link {
-            color: #fff;
+            color: $movie-tertiary-color;
           }
         }
       }
@@ -72,7 +74,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #3a3a3a;
+        background-color: $movie-primary-bg-color;
         z-index: 1000;
         margin-left: 0;
 
@@ -87,15 +89,15 @@
           width: 100%;
           box-sizing: border-box;
           border-radius: 0;
-          border-top: 1px solid #555;
+          border-top: 1px solid $movie-secondary-bg-color;
 
           .active-link {
-            color: #f1c40f;
+            color: $movie-secondary-color;
           }
 
           &:hover {
-            background-color: #f1c40f;
-            color: #3a3a3a;
+            background-color: $movie-secondary-color;;
+            color: $movie-tertiary-color;
             border-radius: 0;
           }
         }
@@ -106,8 +108,8 @@
       display: none;
       background: none;
       border: none;
-      color: #fff;
-      font-size: 24px;
+      color: $movie-primary-color;
+      font-size: $movie-font-size-xl;
       cursor: pointer;
 
       @media (max-width: 768px) {
@@ -115,7 +117,7 @@
       }
 
       &:active svg {
-        color: #f1c40f;
+        color: $movie-secondary-color;
       }
     }
   }
