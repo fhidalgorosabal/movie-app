@@ -22,11 +22,11 @@ export interface SerieTVType extends MovieType {
     original_name: string;
 }
 
-export interface PersonType {
+export interface PersonType extends SerieTVType {
     adult: boolean;
     gender: number;
     id: number;
-    known_for: MovieType[];
+    known_for: MovieType[] | SerieTVType[];
     known_for_department: string;
     name: string;
     popularity: number;
@@ -39,5 +39,5 @@ export interface CardType {
 
 export interface DataListProps {
     loading: boolean;
-    dataList: MovieType[] | SerieTVType[];
+    dataList: MovieType[] | SerieTVType[] | PersonType[];
 }
