@@ -96,9 +96,13 @@
           }
 
           &:hover {
-            background-color: $movie-secondary-color;;
-            color: $movie-tertiary-color;
-            border-radius: 0;
+            background-color: $movie-secondary-color;
+            border-radius: 0;            
+            color: $movie-primary-color;
+
+            .active-link {
+              color: $movie-tertiary-color;
+            }
           }
         }
       }
