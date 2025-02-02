@@ -1,42 +1,34 @@
 import { StartRating } from "../StartRating";
 import { CardType, MovieType, PersonType, SerieTVType } from "../../utils/types";
 import { IMG_URL } from "../../utils/constants";
-import './styles.scss';
+import "./styles.scss";
 
-export const Card = (props: CardType) => { 
-    const data = props?.data;    
-    const getTitle = (data: MovieType | SerieTVType | PersonType) => {
-        return data.title ? data.title : (data as SerieTVType).name;
-    };
-    
+export const Card = ({ data }: CardType) => {
+    const getTitle = (item: MovieType | SerieTVType | PersonType) => 'title' in item 
+        ? item.title 
+        : (item as SerieTVType).name;    
+    const posterPath = data.poster_path || (data as PersonType).profile_path;
+    const overviewText = ( data.overview && data.overview?.length > 100) 
+        ? `${data.overview.substring(0, 100)}...` 
+        : data.overview;
+    const knownForMovies = 'known_for' in data 
+        ? (data as PersonType).known_for.map(getTitle).join(", ") 
+        : null;
+
     return (
         <li className="card">
             <div className="poster">
-                <img 
-                    src={`${IMG_URL}${data.poster_path ? data.poster_path : (data as PersonType).profile_path}`} 
-                    alt={getTitle(data)} 
-                />
+                <img src={`${IMG_URL}${posterPath}`} alt={getTitle(data)} />
             </div>
             <div className="info">
                 <h5 className="title">{getTitle(data)}</h5>
-                { data.vote_average > 0 && <StartRating rating={data.vote_average} />}
+                {data.vote_average > 0 && <StartRating rating={data.vote_average} />}
                 <div className="hidden-content">
-                    { data.overview &&
-                        <p className="description">{
-                            data.overview.length > 100
-                                ? `${data.overview.substring(0, 100)}...`
-                                : data.overview
-                        }</p>                     
-                    }
-                    {
-                        ((data as PersonType).known_for && (data as PersonType).known_for.length > 0) &&
-                        <p className="description">Películas: {
-                            (data as PersonType).known_for.map((movie) => getTitle(movie)).join(', ')
-                        }</p>
-                    }
-                    <button className="btn-default">Ver mas</button>
+                    {data.overview && <p className="description">{overviewText}</p>}
+                    {knownForMovies && <p className="description">Producciones: {knownForMovies}</p>}
+                    <button className="btn-default">Ver más</button>
                 </div>
             </div>
         </li>
-    );   
+    );
 };

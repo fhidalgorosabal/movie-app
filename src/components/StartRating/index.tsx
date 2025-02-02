@@ -1,31 +1,18 @@
-import { FaStar } from 'react-icons/fa6';
-import { FaRegStar } from 'react-icons/fa6';
+import { FaStar, FaRegStar } from 'react-icons/fa6';
 import './styles.scss';
 
 interface StartRatingProps {
     rating: number;
 }
 
-export const StartRating = (props: StartRatingProps) => {
-    const numberOfStars = Math.round(props.rating / 2);
-    const fullStars = [];
-    const emptyStars = [];
-    for (let i = 0; i < 5; i++) {
-        if (i < numberOfStars) {
-            fullStars.push(i);
-        } else {
-            emptyStars.push(i);
-        }
-    }
+export const StartRating = ({ rating }: StartRatingProps) => {
+    const numberOfStars = Math.round(rating / 2);
 
     return (
         <div className="movie-rate">
-            {fullStars.map(index => (
-                <FaStar key={index} />
-            ))}
-            {emptyStars.map(index => (
-                <FaRegStar key={index} />
-            ))}
+            {[...Array(5)].map((_, index) =>
+                index < numberOfStars ? <FaStar key={index} /> : <FaRegStar key={index} />
+            )}
         </div>
     );
 };
