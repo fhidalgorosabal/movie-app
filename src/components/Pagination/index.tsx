@@ -39,18 +39,17 @@ export const Pagination = ({ currentPage, totalPages, onPageChange }: Pagination
         <MdNavigateBefore size={20}/>
       </button>
 
-      {pages.map((page, index) =>
-        page !== null ? (
-          <button
-            key={index}
-            className={currentPage === page ? "active" : ""}
-            onClick={() => onPageChange(page)}
-          >
-            {page}
-          </button>
-        ) : (
-          <span key={index} className="ellipsis">...</span>
-        )
+      {pages.map((page, index) => page !== null 
+        ? (
+            <button
+              key={index}
+              className={currentPage === page ? "active" : "inactive"}
+              onClick={() => onPageChange(page)}
+            >
+              {page}
+            </button>
+          ) 
+        : <span key={index} className="ellipsis">...</span>
       )}
 
       <button onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages}>
