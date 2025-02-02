@@ -1,0 +1,44 @@
+@import '../../assets/styles/variables';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  
+    button {
+      background-color: $movie-quaternary-bg-color;
+      color: $movie-primary-color;
+      border: none;
+      padding: 8px 12px 4px;
+      margin: 0 4px;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        color: $movie-tertiary-color;
+      }
+  
+      &.active {
+        background-color: $movie-tertiary-bg-color;
+        color: $movie-tertiary-color;
+      }
+  
+      &:disabled {
+        background-color: $movie-primary-bg-color;
+        cursor: not-allowed;
+
+        &:hover {
+          color: $movie-primary-color;
+        }
+      }
+    }
+  
+    .ellipsis {
+      padding: 8px;
+      font-weight: bold;
+      color: $movie-quaternary-color;
+    }
+  }
+  

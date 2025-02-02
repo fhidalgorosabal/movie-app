@@ -1,7 +1,9 @@
+@import '../../assets/styles/variables';
+
 .movie-rate {
     display: flex;
     gap: 4px;
     svg {
-        color: #f1c40f;
+        color: $movie-quaternary-color;
     }
 }
