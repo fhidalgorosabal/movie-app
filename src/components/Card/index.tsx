@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { StartRating } from "../StartRating";
+import { ModalInfo } from "../ModalInfo";
 import { CardType, MovieType, PersonType, SerieTVType } from "../../utils/types";
 import { IMG_URL } from "../../utils/constants";
 import "./styles.scss";
@@ -14,21 +16,31 @@ export const Card = ({ data }: CardType) => {
     const knownForMovies = 'known_for' in data 
         ? (data as PersonType).known_for.map(getTitle).join(", ") 
         : null;
+        const [isModalOpen, setIsModalOpen] = useState(false);
+        const handleOpenModal = () => setIsModalOpen(true);
+        const handleCloseModal = () => setIsModalOpen(false);
+    
 
     return (
-        <li className="card">
-            <div className="poster">
-                <img src={`${IMG_URL}${posterPath}`} alt={getTitle(data)} />
-            </div>
-            <div className="info">
-                <h5 className="title">{getTitle(data)}</h5>
-                {data.vote_average > 0 && <StartRating rating={data.vote_average} />}
-                <div className="hidden-content">
-                    {data.overview && <p className="description">{overviewText}</p>}
-                    {knownForMovies && <p className="description">Producciones: {knownForMovies}</p>}
-                    <button className="btn-default">Ver más</button>
+        <>
+            <li className="card">
+                <div className="poster">
+                    <img src={`${IMG_URL}${posterPath}`} alt={getTitle(data)} />
                 </div>
-            </div>
-        </li>
+                <div className="info">
+                    <h5 className="title">{getTitle(data)}</h5>
+                    {data.vote_average > 0 && <StartRating rating={data.vote_average} />}
+                    <div className="hidden-content">
+                        {data.overview && <p className="description">{overviewText}</p>}
+                        {knownForMovies && <p className="description">Producciones: {knownForMovies}</p>}
+                        <button className="btn-default" onClick={handleOpenModal}>Ver más</button>
+                    </div>
+                </div>
+            </li>
+
+            {isModalOpen && (<ModalInfo data={data} onClose={handleCloseModal} />
+            )}
+        </>
+
     );
 };

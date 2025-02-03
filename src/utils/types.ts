@@ -34,7 +34,7 @@ export interface PersonType extends SerieTVType {
 }
 
 export interface CardType { 
-    data: MovieType | SerieTVType;
+    data: MovieType | SerieTVType | PersonType;
 }
 
 export interface DataListProps {

@@ -1,3 +1,5 @@
+@import './variables';
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -6,5 +8,5 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1d1e1e;
+    background-color: $movie-quinquenary-bg-color;
 }
