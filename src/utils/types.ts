@@ -23,7 +23,6 @@ export interface SerieTVType extends MovieType {
 }
 
 export interface PersonType extends SerieTVType {
-    adult: boolean;
     gender: number;
     id: number;
     known_for: MovieType[] | SerieTVType[];
@@ -40,4 +39,9 @@ export interface CardType {
 export interface DataListProps {
     loading: boolean;
     dataList: MovieType[] | SerieTVType[] | PersonType[];
+}
+
+export interface ModalProps {
+  data: MovieType | SerieTVType | PersonType;
+  onClose: () => void;
 }
