@@ -1,6 +1,6 @@
 # Movie App
 
-Aplicación desarrollada en **React** que muestra un listado de las últimas películas del año. Utiliza la API de [The Movie Database (TMDB)](https://developer.themoviedb.org/docs/getting-started).
+Aplicación desarrollada en **React** que brinda información sobre las mejores películas estrenadas, series de televisión y actores en tendencia. Utiliza la API de [The Movie Database (TMDB)](https://developer.themoviedb.org/docs/getting-started).
 
 ---
 
